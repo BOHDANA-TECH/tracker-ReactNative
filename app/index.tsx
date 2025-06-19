@@ -1,8 +1,15 @@
 import { colors } from "@/constants/theme";
-import React from "react";
+import { useRouter } from "expo-router";
+import React, { useEffect } from "react";
 import { Image, StyleSheet, View } from "react-native";
 
 const index = () => {
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/auth/welcome')
+    }, 2000);
+  }, []);
   return (
     <View style={styles.container}>
       <Image
@@ -23,7 +30,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.neutral900,
   },
-  logo:{
-    
-  }
+  logo: {
+    height: "20%",
+    aspectRatio: 1,
+  },
 });
